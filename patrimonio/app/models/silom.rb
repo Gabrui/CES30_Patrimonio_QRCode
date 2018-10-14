@@ -1,0 +1,2 @@
+class Silom < ApplicationRecord
+end

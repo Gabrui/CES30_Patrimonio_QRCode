@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dependencia: MyString
+  conta: MyString
+  classe: MyString
+  bmp: 1
+  nomeclatura: MyString
+  serie: MyString
+  pn: MyString
+  sispat: MyString
+  fcg: MyString
+  etiqueta: MyString
+  qtd: 1
+  valor_atualizado: 9.99
+  valor_depreciado: 9.99
+  valor_liquido: 9.99
+  situacao: MyString
+
+two:
+  dependencia: MyString
+  conta: MyString
+  classe: MyString
+  bmp: 1
+  nomeclatura: MyString
+  serie: MyString
+  pn: MyString
+  sispat: MyString
+  fcg: MyString
+  etiqueta: MyString
+  qtd: 1
+  valor_atualizado: 9.99
+  valor_depreciado: 9.99
+  valor_liquido: 9.99
+  situacao: MyString

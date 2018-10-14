@@ -1,0 +1,3 @@
+class SilomAntigo < ApplicationRecord
+    
+end
