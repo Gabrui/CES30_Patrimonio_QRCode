@@ -1,0 +1,11 @@
+class SilomsController < ApplicationController
+  def index
+    @siloms = Silom.all
+  end
+
+  def import
+    Silom.import(params[:file])
+    #after the import, redirect and tell us the method worked!
+    reirect_to root_url, notice: "Data imported!"
+  end
+end

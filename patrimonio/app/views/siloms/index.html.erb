@@ -1,0 +1,51 @@
+<%= flash[:notice] %>
+<table>
+    <thead>
+        <tr>
+            <th>DEPENDENCIA</th>
+            <th>CONTA</th>
+            <th>CLASSE</th>
+            <th>BMP</th>
+            <th>NOMECLATURA_COMPONENTE</th>
+            <th>SERIE</th>
+            <th>PN</th>
+            <th>SISPAT</th>
+            <th>FCG</th>
+            <th>ETIQUETA_METALICA</th>
+            <th>QUANTIDADE</th>
+            <th>VALOR_ATUALIZADO</th>
+            <th>VALOR_DEPRECIADO_ACUMULADO</th>
+            <th>VALOR_LIQUIDO</th>
+            <th>SITUACAO</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @siloms.each do |silom| %>
+            <tr>
+                <td><%= silom.dependencia %></td>
+                <td><%= silom.conta %></td>
+                <td><%= silom.classe %></td>
+                <td><%= silom.bmp %></td>
+                <td><%= silom.nomenclatura %></td>
+                <td><%= silom.serie %></td>
+                <td><%= silom.pn %></td>
+                <td><%= silom.sispat %></td>
+                <td><%= silom.fcg %></td>
+                <td><%= silom.etiqueta %></td>
+                <td><%= silom.qtd %></td>
+                <td><%= silom.valor_atualizado %></td>
+                <td><%= silom.valor_depreciado %></td>
+                <td><%= silom.valor_liquido %></td>
+                <td><%= silom.situacao %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<div>
+<h4>Import that data!</h4>
+<%= form_tag import_siloms_path, multipart:true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+    <% end %>
+</div>
+
