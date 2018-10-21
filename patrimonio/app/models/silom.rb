@@ -3,8 +3,9 @@ class Silom < ApplicationRecord
 
     #Import csv file passed throught as an argument
     def self.import(file)
+
         #a block that runs trough a loop in our csv data
-        CSV.foreach(file.path,headers: true) do |row|
+        CSV.foreach(file.path,encoding:"utf-8",headers: true) do |row|
 
             #creates a Silom for each row in the CSV file
             Silom.create(
