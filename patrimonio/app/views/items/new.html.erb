@@ -1,0 +1,11 @@
+<div class="itens">
+  <div class="container">
+    <%= form_for :item, url: '/items' do |f| %>
+      <%= f.text_field :descicao, :placeholder => 'Descrição' %>
+      <%= f.text_field :silom, :placeholder => 'Número BMP' %>
+      <%= f.text_field :usuario, :placeholder => 'Detentor' %>
+      <%= f.text_field :local, :placeholder => 'Local' %>
+      <%= f.submit "Criar", :class => "form-btn" %>
+    <% end %>
+  </div>
+</div>
