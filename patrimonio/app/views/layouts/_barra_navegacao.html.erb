@@ -1,23 +1,21 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+<nav class="navbar navbar-inverse">
+  <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <%= link_to 'Patrimônio', root_path, class: 'navbar-brand' %>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+    <div id="navbar">
+  
+    <ul class="nav navbar-nav pull-right">
+      <li><% link_to 'Início', root_path %></li>
+      <ul class="nav navbar-nav pull-right">
+        <% if usuario_signed_in? %>
+        <li><%= current_usuario.email %></li>
+        <li><%= link_to 'Sair', destroy_usuario_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Entrar', new_usuario_session_path %></li>
+          <li><%= link_to 'Cadastrar', new_usuario_registration_path %></li>
+        <% end %>
       </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </ul>
+  </div>
 </nav>

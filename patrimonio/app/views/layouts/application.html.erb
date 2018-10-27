@@ -11,6 +11,13 @@
 
   <body>
     <%= render 'layouts/barra_navegacao' %>
-    <%= yield %>
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>
