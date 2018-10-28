@@ -1,4 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<p>
+  <strong>Descrição:</strong>
+  <%= @item.descricao %>
+</p>
+
+<p>
+  <strong>QR Code:</strong>
+  <%= @item.qr_code %>
+</p>
+
+<%= link_to 'Editar', edit_item_path(@item) %> |
+<%= link_to 'Voltar', items_path %>
