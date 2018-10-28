@@ -21,6 +21,17 @@
     <%= form.text_field :estado %>
   </div>
 
+  <div class="field">
+  <%= form.label :local %><br />
+  <%= form.select :local_id, options_for_select(Local.all.map{|s|[s.nome, s.id]}) %>
+  </div>
+
+  <div class="field">
+  <%= form.label :silom %><br />
+  <%- #f.text_field :silom_descricao, data: { autocomplete_source: categories_path} -%>
+  <%= form.select :silom_id, options_for_select(Silom.all.map{|s|[s.nomeclatura, s.id]}) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
