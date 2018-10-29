@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :estados
   devise_for :usuarios
   resources :siloms do
     collection { post :import}

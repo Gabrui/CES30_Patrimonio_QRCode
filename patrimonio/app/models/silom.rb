@@ -1,4 +1,6 @@
 class Silom < ApplicationRecord
+  has_many :items
+
   require 'csv'
 
   #Import csv file passed throught as an argument

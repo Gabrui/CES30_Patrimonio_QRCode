@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :estado %>
-    <%= form.text_field :estado %>
+  <%= form.select :estado_id, options_for_select(Estado.all.map{|s|[s.nome, s.id]}) %>
   </div>
 
   <div class="field">

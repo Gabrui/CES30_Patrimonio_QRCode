@@ -10,17 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_14_133346) do
+ActiveRecord::Schema.define(version: 2018_10_29_110429) do
+
+  create_table "estados", force: :cascade do |t|
+    t.string "nome"
+    t.text "descricao"
+    t.integer "valor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "qr_code"
     t.string "descricao"
-    t.string "estado"
+    t.integer "estado_id"
     t.integer "silom_id"
     t.integer "usuario_id"
     t.integer "local_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["estado_id"], name: "index_items_on_estado_id"
     t.index ["local_id"], name: "index_items_on_local_id"
     t.index ["silom_id"], name: "index_items_on_silom_id"
     t.index ["usuario_id"], name: "index_items_on_usuario_id"
