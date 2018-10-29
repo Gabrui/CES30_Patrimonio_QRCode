@@ -28,11 +28,13 @@
 
   <div class="field">
   <%= form.label :silom %><br />
-  <%- #f.text_field :silom_descricao, data: { autocomplete_source: categories_path} -%>
-  <%= form.select :silom_id, options_for_select(Silom.all.map{|s|[s.nomeclatura, s.id]}) %>
+  <%- #f.text_field :silom_nomeclatura, data: { autocomplete_source: siloms_path} -%>
+
+  <%= form.select :silom_id, options_for_select(@siloms) %>
+
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Criar Item"%>
   </div>
 <% end %>

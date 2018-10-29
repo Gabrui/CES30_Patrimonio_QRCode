@@ -15,10 +15,12 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @siloms = siloms_livres
   end
 
   # GET /items/1/edit
   def edit
+    @siloms = siloms_livres
   end
 
   # POST /items
@@ -70,5 +72,9 @@ class ItemsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
       params.fetch(:item, {})
+    end
+
+    def siloms_livres
+      Silom.select(:id,:nomeclatura).uniq{ |p| p.nomeclatura }.map { |m| [m.nomeclatura, m.id]}
     end
 end

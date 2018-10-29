@@ -11,4 +11,8 @@ class Item < ApplicationRecord
     self.item = Item.find_by(descricao: descricao) if descricao.present?
   end
 
+  def livres_silom
+    
+  end
+
 end
