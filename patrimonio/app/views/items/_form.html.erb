@@ -27,6 +27,11 @@
   </div>
 
   <div class="field">
+  <%= form.label :usuario %><br />
+  <%= form.select :usuario_id, options_for_select(Usuario.all.map{|s|[s.nome, s.id]}) %>
+  </div>
+
+  <div class="field">
   <%= form.label :silom %><br />
   <%- #f.text_field :silom_nomeclatura, data: { autocomplete_source: siloms_path} -%>
 
