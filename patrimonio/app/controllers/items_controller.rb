@@ -14,7 +14,8 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    @qr = RQRCode::QRCode.new( "Teste", size: 4)
+    @qr_code_string = "%d,%9s,%9s,%9s" % [@item.id, @item.usuario.nome, @item.local.nome, @item.descricao]
+    @qr = RQRCode::QRCode.new(@qr_code_string, size: 5)
   end
 
   # GET /items/new
