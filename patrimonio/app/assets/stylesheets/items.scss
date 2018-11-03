@@ -47,3 +47,40 @@ table.qr-code td {
 }
 table.qr-code td.black { background-color: #000; }
 table.qr-code td.white { background-color: #fff; }
+
+
+/*QR CODE*/
+/*
+.qrcode-text-btn {
+  display: inline-block;
+  height: 1em;
+  width: 1.7em;
+  margin-left: -1.7em;
+  vertical-align: middle;
+  background: url(qr_icon.svg) 50% 50% no-repeat;
+  cursor: pointer;
+}
+
+.qrcode-text-btn > input[type=file] {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.qrcode-text {
+  padding-right: 1.7em;
+  margin-right: 0;
+  vertical-align: middle;
+  margin-left: -1.7em;
+}
+*/
+input, label {vertical-align:middle}
+.qrcode-text {padding-right:1.7em; margin-right:0}
+.qrcode-text-btn {display:inline-block; background:url(qr_icon.svg) 50% 50% no-repeat; height:1em; width:1.7em; margin-left:-1.7em; cursor:pointer;}
+.qrcode-text-btn > input[type=file] {position:absolute; overflow:hidden; width:1px; height:1px; opacity:0;}
+
+#qr-video {
+  display: none;
+}
