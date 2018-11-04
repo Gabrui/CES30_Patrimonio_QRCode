@@ -13,11 +13,16 @@
       <li class="nav-item <%= classe_pagina_ativa(locals_path) %>">
         <%= link_to 'Locais', locals_path, class: 'nav-link' %>
       </li>
+
+      <li class="nav-item <%= classe_pagina_ativa(estados_path) %>">
+        <%= link_to 'Estados', estados_path, class: 'nav-link' %>
+      </li>
+
     </ul>
 
     <ul class="navbar-nav ml-auto">
       <% if usuario_signed_in? %>
-        <li class="nav-item"><%= current_usuario.email %></li>
+        <li class="nav-item"><%= link_to current_usuario.email, edit_usuario_registration_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to 'Sair', destroy_usuario_session_path, class: 'nav-link', method: :delete %></li>
       <% else %>
         <li class="nav-item"><%= link_to 'Entrar', new_usuario_session_path, class: 'nav-link' %></li>

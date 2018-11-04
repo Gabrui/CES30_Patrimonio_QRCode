@@ -9,9 +9,55 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
+ //= require material_icons
  */
 
-@import "bootstrap";
-
+@import "material";
 @import "externo/jquery-ui.css";
 
+@import "paginas.scss";
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 150px; /* Margin bottom by footer height */
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px; /* Set the fixed height of the footer here */
+  padding-top: 15px;
+}
+
+:root {
+  --jumbotron-padding-y: 3rem;
+}
+
+
+.jumbotron {
+  padding-top: var(--jumbotron-padding-y);
+  padding-bottom: var(--jumbotron-padding-y);
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: calc(var(--jumbotron-padding-y) * 2);
+    padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 60rem;
+}

@@ -44,12 +44,11 @@
         <% end %>
     </tbody>
 </table>
-<div>
 </div>
+
 
 <h1>Importar os dados</h1>
 <%= form_tag import_siloms_path, multipart:true do %>
     <%= file_field_tag :file %>
     <%= submit_tag "Import CSV" %>
     <% end %>
-</div>
