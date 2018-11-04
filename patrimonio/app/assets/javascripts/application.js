@@ -19,6 +19,7 @@
 //= require bootstrap
 //= require material
 //= require jquery-uio
+//= require datatables
 //= require items
 
 

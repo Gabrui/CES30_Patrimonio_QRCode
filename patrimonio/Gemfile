@@ -66,6 +66,7 @@ gem 'bootstrap', '4.1.1'
 gem 'material-sass', '4.1.1'
 gem 'material_icons'
 gem 'jquery-rails'
+gem 'jquery-datatables'
 
 gem 'devise'
 gem 'pundit'
