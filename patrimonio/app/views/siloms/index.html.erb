@@ -1,12 +1,16 @@
 <%= flash[:notice] %>
-<table>
+
+<div class="table-responsive">
+<table class="table table-hover table-striped">
+<caption>Lista de itens atuais do siloms.</caption>
     <thead>
         <tr>
-            <th>DEPENDENCIA</th>
-            <th>CONTA</th>
-            <th>CLASSE</th>
             <th>BMP</th>
             <th>NOMECLATURA_COMPONENTE</th>
+            <th>CLASSE</th>
+            <th>SITUACAO</th>
+            <th>CONTA</th>
+            <th>DEPENDENCIA</th>
             <th>SERIE</th>
             <th>PN</th>
             <th>SISPAT</th>
@@ -16,17 +20,17 @@
             <th>VALOR_ATUALIZADO</th>
             <th>VALOR_DEPRECIADO_ACUMULADO</th>
             <th>VALOR_LIQUIDO</th>
-            <th>SITUACAO</th>
         </tr>
     </thead>
     <tbody>
         <% @siloms.each do |silom| %>
             <tr>
-                <td><%= silom.dependencia %></td>
-                <td><%= silom.conta %></td>
-                <td><%= silom.classe %></td>
-                <td><%= silom.bmp %></td>
+                <th scope="row"><%= silom.bmp %></th>
                 <td><%= silom.nomeclatura %></td>
+                <td><%= silom.classe %></td>
+                <td><%= silom.situacao %></td>
+                <td><%= silom.conta %></td>
+                <td><%= silom.dependencia %></td>
                 <td><%= silom.serie %></td>
                 <td><%= silom.pn %></td>
                 <td><%= silom.sispat %></td>
@@ -36,16 +40,16 @@
                 <td><%= silom.valor_atualizado %></td>
                 <td><%= silom.valor_depreciado %></td>
                 <td><%= silom.valor_liquido %></td>
-                <td><%= silom.situacao %></td>
             </tr>
         <% end %>
     </tbody>
 </table>
 <div>
-<h4>Import that data!</h4>
+</div>
+
+<h1>Importar os dados</h1>
 <%= form_tag import_siloms_path, multipart:true do %>
     <%= file_field_tag :file %>
     <%= submit_tag "Import CSV" %>
     <% end %>
 </div>
-
