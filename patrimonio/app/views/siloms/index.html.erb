@@ -1,25 +1,35 @@
-<%= flash[:notice] %>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">
+      Siloms
+    </h1>
+    <p class="lead text-muted">
+      Observe os dados importados do Silom.
+    </p>
+  </div>
+</section>
 
-<div class="table-responsive">
-<table class="table table-hover table-striped">
+
+<div class="table-responsive container-fluid">
+<table id="tabelaSiloms" class="table table-sm table-hover table-striped table-bordered">
 <caption>Lista de itens atuais do siloms.</caption>
     <thead>
         <tr>
             <th>BMP</th>
-            <th>NOMECLATURA_COMPONENTE</th>
-            <th>CLASSE</th>
-            <th>SITUACAO</th>
-            <th>CONTA</th>
-            <th>DEPENDENCIA</th>
+            <th>Nome ou descrição do componente</th>
+            <th>Classe</th>
+            <th>Sit.</th>
+            <th>Conta</th>
+            <th>V. Atual</th>
+            <th>V. Depre.</th>
+            <th>V. Liq.</th>
             <th>SERIE</th>
+            <th>DEPENDENCIA</th>
             <th>PN</th>
             <th>SISPAT</th>
             <th>FCG</th>
             <th>ETIQUETA_METALICA</th>
             <th>QUANTIDADE</th>
-            <th>VALOR_ATUALIZADO</th>
-            <th>VALOR_DEPRECIADO_ACUMULADO</th>
-            <th>VALOR_LIQUIDO</th>
         </tr>
     </thead>
     <tbody>
@@ -30,16 +40,16 @@
                 <td><%= silom.classe %></td>
                 <td><%= silom.situacao %></td>
                 <td><%= silom.conta %></td>
-                <td><%= silom.dependencia %></td>
+                <td><%= silom.valor_atualizado %></td>
+                <td><%= silom.valor_depreciado %></td>
+                <td><%= silom.valor_liquido %></td>
                 <td><%= silom.serie %></td>
+                <td><%= silom.dependencia %></td>
                 <td><%= silom.pn %></td>
                 <td><%= silom.sispat %></td>
                 <td><%= silom.fcg %></td>
                 <td><%= silom.etiqueta %></td>
                 <td><%= silom.qtd %></td>
-                <td><%= silom.valor_atualizado %></td>
-                <td><%= silom.valor_depreciado %></td>
-                <td><%= silom.valor_liquido %></td>
             </tr>
         <% end %>
     </tbody>
@@ -47,8 +57,80 @@
 </div>
 
 
-<h1>Importar os dados</h1>
-<%= form_tag import_siloms_path, multipart:true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import CSV" %>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">
+      Importar os dados
+    </h1>
+    <p class="lead text-muted">
+      Importe os dados (sobreescrevendo):
+    </p>
+    <%= form_tag import_siloms_path, multipart:true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Importar CSV" %>
     <% end %>
+  </div>
+</section>
+
+
+
+<script>
+$(document).ready(function() {
+  $('#tabelaSiloms').DataTable( {
+    language: {
+      "sEmptyTable": "Nenhum registro encontrado",
+      "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+      "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+      "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+      "sInfoPostFix": "",
+      "sInfoThousands": ".",
+      "sLengthMenu": "_MENU_ resultados por página",
+      "sLoadingRecords": "Carregando...",
+      "sProcessing": "Processando...",
+      "sZeroRecords": "Nenhum registro encontrado",
+      "sSearch": "Pesquisar",
+      "oPaginate": {
+        "sNext": "Próximo",
+        "sPrevious": "Anterior",
+        "sFirst": "Primeiro",
+        "sLast": "Último"
+      },
+      "oAria": {
+        "sSortAscending": ": Ordenar colunas de forma ascendente",
+        "sSortDescending": ": Ordenar colunas de forma descendente"
+      }
+    },
+    "columnDefs": [
+      {
+        "targets": [ 8 ],
+        "visible": false
+      },
+      {
+        "targets": [ 9 ],
+        "visible": false
+      },
+      {
+        "targets": [10 ],
+        "visible": false
+      },
+      {
+        "targets": [ 11],
+        "visible": false
+      },
+      {
+        "targets": [ 12],
+        "visible": false
+      },
+      {
+        "targets": [ 13],
+        "visible": false
+      },
+      {
+        "targets": [ 14],
+        "visible": false,
+        "searchable": false
+      }
+    ]
+  });
+});
+</script>

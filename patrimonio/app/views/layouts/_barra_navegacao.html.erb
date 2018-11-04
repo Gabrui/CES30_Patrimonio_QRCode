@@ -6,6 +6,7 @@
 
   <div class="collapse navbar-collapse" id="barraNavegacao">
     <ul class="navbar-nav mr-auto">
+
       <li class="nav-item <%= classe_pagina_ativa(items_path) %>">
         <%= link_to 'Itens', items_path, class: 'nav-link' %>
       </li>
@@ -16,6 +17,10 @@
 
       <li class="nav-item <%= classe_pagina_ativa(estados_path) %>">
         <%= link_to 'Estados', estados_path, class: 'nav-link' %>
+      </li>
+
+      <li class="nav-item <%= classe_pagina_ativa(estados_path) %>">
+        <%= link_to 'Silom', siloms_path, class: 'nav-link' %>
       </li>
 
     </ul>
