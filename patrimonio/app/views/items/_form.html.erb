@@ -1,7 +1,9 @@
-<%= form_with(model: item, local: true) do |form| %>
+
+<%= form_with(model: item, local: true, class:'needs-validation', :html => {:novalidate => true}) do |form| %>
+
   <% if item.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+      <h2><%= pluralize(item.errors.count, "erro") %> impediram que esse item fosse salvo:</h2>
 
       <ul>
       <% item.errors.full_messages.each do |message| %>
@@ -11,39 +13,53 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="mb-3">
     <%= form.label :descricao %>
-    <%= form.text_field :descricao %>
+    <%= form.text_field :descricao, :required => true, class:'form-control' %>
+    <div class="invalid-feedback">
+      Por favor, forneça um nome para o item.
+    </div>
   </div>
 
-  <div class="field">
+  <div class="mb-3">
     <%= form.label :estado %>
-  <%= form.select :estado_id, options_for_select(Estado.all.map{|s|[s.nome, s.id]}) %>
+    <%= form.select :estado_id, options_for_select(Estado.all.map{|s|[s.nome, s.id]}), {}, {:required => true, :class => 'custom-select d-block w-100'} %>
+    <div class="invalid-feedback">
+      Por favor, selecione um estado.
+    </div>
   </div>
 
-  <div class="field">
-  <%= form.label :local %><br />
-  <%= form.select :local_id, options_for_select(Local.all.map{|s|[s.nome, s.id]}) %>
+  <div class="mb-3">
+    <%= form.label :local %>
+    <%= form.select :local_id, options_for_select(Local.all.map{|s|[s.nome, s.id]}), {}, {:required => true, :class => 'custom-select d-block w-100'} %>
+    <div class="invalid-feedback">
+      Por favor, selecione um local.
+    </div>
   </div>
 
-  <div class="field">
-  <%= form.label :usuario %><br />
-  <%= form.select :usuario_id, options_for_select(Usuario.all.map{|s|[s.nome, s.id]}) %>
+  <div class="mb-3">
+    <%= form.label 'Detentor' %>
+    <%= form.select :usuario_id, options_for_select(Usuario.all.map{|s|[s.nome, s.id]}), {}, {:required => true, :class => 'custom-select d-block w-100'} %>
+    <div class="invalid-feedback">
+      Por favor, selecione um detentor.
+    </div>
   </div>
 
-  <div class="field">
-  <%= form.label :silom %><br />
-  <%- #f.text_field :silom_nomeclatura, data: { autocomplete_source: siloms_path} -%>
-
-  <%= form.select :silom_id, options_for_select(@siloms) %>
-
+  <div class="mb-3">
+    <%= form.label :silom %>
+    <%= form.select :silom_id, options_for_select(@siloms), {}, {:required => true} %>
+    <div class="invalid-feedback">
+      Por favor, selecione um item do Silom.
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit "Criar Item"%>
-  </div>
+  <hr class="mb-4">
+  <%= form.submit "Criar Item", class:'btn btn-primary btn-lg btn-block'%>
+
 <% end %>
+
 
 <script>
 $(criarCombobox);
+validarFormulario();
 </script>

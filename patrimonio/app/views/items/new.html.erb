@@ -1,5 +1,15 @@
-<h1>Novo Item</h1>
+<div class="container">
 
-<%= render 'form', item: @item %>
+  <div class="py-5 text-center">
+    <h2>Formulário de cadastro</h2>
+    <p class="lead">É necessário escolher um item do Siloms, um nome para o item ...</p>
+  </div>
 
-<%= link_to 'Voltar', items_path %>
+  <%= render 'form', item: @item %>
+
+  <div class='py-5'>
+    <%= link_to 'Voltar', items_path , class:'btn btn-secondary my-2' %>
+  </div>
+
+</div>
+

@@ -14,11 +14,12 @@ function criarCombobox() {
       var selected = this.element.children( ":selected" ),
         value = selected.val() ? selected.text() : "";
 
+        /* ui-widget ui-widget-content ui-state-default ui-corner-left  */
       this.input = $( "<input>" )
         .appendTo( this.wrapper )
         .val( value )
         .attr( "title", "" )
-        .addClass( "custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" )
+        .addClass( "custom-combobox-input form-control" )
         .autocomplete({
           delay: 0,
           minLength: 0,
@@ -46,19 +47,21 @@ function criarCombobox() {
       var input = this.input,
         wasOpen = false;
 
-      $( "<a>" )
-        .attr( "tabIndex", -1 )
-        .attr( "title", "Mostrar todos" )
-        .tooltip()
-        .appendTo( this.wrapper )
+        /* ui-corner-right 
         .button({
           icons: {
             primary: "ui-icon-triangle-1-s"
           },
           text: false
         })
+        */
+      $( "<a>" )
+        .attr( "tabIndex", -1 )
+        .attr( "title", "Mostrar todos" )
+        .tooltip()
+        .appendTo( this.wrapper )
         .removeClass( "ui-corner-all" )
-        .addClass( "custom-combobox-toggle ui-corner-right" )
+        .addClass( "custom-select custom-combobox-toggle" )
         .on( "mousedown", function() {
           wasOpen = input.autocomplete( "widget" ).is( ":visible" );
         })
@@ -132,3 +135,25 @@ function criarCombobox() {
   $( "#item_silom_id" ).combobox();
   
 }
+
+
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+function validarFormulario() {
+  'use strict';
+
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+};
