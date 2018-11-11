@@ -1,7 +1,7 @@
 class DeviseCreateUsuarios < ActiveRecord::Migration[5.2]
   def change
     create_table :usuarios do |t|
-      t.string :nome
+      t.string :nome, null: false, default: ""
       t.string :status
       t.timestamps
 
@@ -41,6 +41,7 @@ class DeviseCreateUsuarios < ActiveRecord::Migration[5.2]
 
     add_index :usuarios, :email,                unique: true
     add_index :usuarios, :reset_password_token, unique: true
+    add_index :usuarios, :nome, unique: true
     # add_index :usuarios, :confirmation_token,   unique: true
     # add_index :usuarios, :unlock_token,         unique: true
   end
