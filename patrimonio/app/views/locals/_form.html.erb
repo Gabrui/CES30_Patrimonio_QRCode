@@ -1,7 +1,8 @@
-<%= form_with(model: local, local: true) do |form| %>
+<%= form_with(model: local, local: true, class:'needs-validation', :html => {:novalidate => true}) do |form| %>
+
   <% if local.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(local.errors.count, "error") %> prohibited this local from being saved:</h2>
+      <h2><%= pluralize(local.errors.count, "erro") %> impediram que esse local fosse salvo:</h2>
 
       <ul>
       <% local.errors.full_messages.each do |message| %>
@@ -11,27 +12,34 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="mb-3">
     <%= form.label :nome %>
-    <%= form.text_field :nome %>
+    <%= form.text_field :nome, :required => true, class:'form-control' %>
+    <div class="invalid-feedback">
+      Por favor, forneça um nome para o local.
+    </div>
   </div>
 
-  <div class="field">
+  <div class="mb-3">
     <%= form.label :sala %>
-    <%= form.text_field :sala %>
+    <%= form.text_field :sala, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="mb-3">
     <%= form.label :predio %>
-    <%= form.text_field :predio %>
+    <%= form.text_field :predio, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="mb-3">
     <%= form.label :descricao %>
-    <%= form.text_area :descricao %>
+    <%= form.text_area :descricao, class:'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <hr class="mb-4">
+  <%= form.submit "Criar Estado", class:'btn btn-primary btn-lg btn-block'%>
+
 <% end %>
+
+<script>
+validarFormulario();
+</script>

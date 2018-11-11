@@ -1,6 +1,15 @@
-<h1>Editing Local</h1>
+<div class="container">
 
-<%= render 'form', local: @local %>
+  <div class="py-5 text-center">
+    <h2>Editar local <%= @local.nome%></h2>
+    <p class="lead">Mude os atributos do seu local.</p>
+  </div>
 
-<%= link_to 'Detalhes', @local %> |
-<%= link_to 'Voltar', locals_path %>
+  <%= render 'form', local: @local %>
+
+  <div class='py-5'>
+    <%= link_to 'Voltar', locals_path, class:'btn btn-secondary my-2' %>
+    <%= link_to 'Detalhes', @local, class:'btn btn-secondary my-2' %>
+  </div>
+
+</div>

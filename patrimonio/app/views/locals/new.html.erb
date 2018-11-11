@@ -1,5 +1,14 @@
-<h1>Novo Local</h1>
+<div class="container">
 
-<%= render 'form', local: @local %>
+  <div class="py-5 text-center">
+    <h2>Novo Local</h2>
+    <p class="lead">Crie um novo local para um item.</p>
+  </div>
 
-<%= link_to 'Voltar', locals_path %>
+  <%= render 'form', local: @local %>
+
+  <div class='py-5'>
+    <%= link_to 'Voltar', locals_path , class:'btn btn-secondary my-2' %>
+  </div>
+
+</div>

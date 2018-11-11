@@ -1,27 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Descrição:</strong>
-  <%= @item.descricao %>
-</p>
+  <div class="py-5 text-center">
+    <h2><%= @item.descricao%></h2>
+  </div>
 
-<p>
-  <strong>QR Code: <%= @qr_code_string %> </strong>
-  <%= @item.qr_code %>
-  <table class="qr-code">
-  <% @qr.modules.each_index do |x| %>
-    <tr>
-    <% @qr.modules.each_index do |y| %>
-    <% if @qr.dark?(x,y) %>
-      <td class="black"/>
-    <% else %>
-      <td class="white"/>
+  <p>
+    <strong>QR Code: <%= @qr_code_string %> </strong>
+    <%= @item.qr_code %>
+    <table class="qr-code">
+    <% @qr.modules.each_index do |x| %>
+      <tr>
+      <% @qr.modules.each_index do |y| %>
+      <% if @qr.dark?(x,y) %>
+        <td class="black"/>
+      <% else %>
+        <td class="white"/>
+      <% end %>
+      <% end %>
+      </tr>
     <% end %>
-    <% end %>
-    </tr>
-  <% end %>
-  </table>
-</p>
+    </table>
+  </p>
 
-<%= link_to 'Editar', edit_item_path(@item) %> |
-<%= link_to 'Voltar', items_path %>
+  <div class='py-5'>
+    <%= link_to 'Editar', edit_item_path(@item), class:'btn btn-secondary my-2' %>
+    <%= link_to 'Voltar', items_path, class:'btn btn-secondary my-2' %>
+  </div>
+
+</div>
+

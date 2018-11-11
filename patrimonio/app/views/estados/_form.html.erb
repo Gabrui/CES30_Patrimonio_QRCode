@@ -1,7 +1,8 @@
-<%= form_with(model: estado, local: true) do |form| %>
+<%= form_with(model: estado, local: true, class:'needs-validation', :html => {:novalidate => true}) do |form| %>
+
   <% if estado.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(estado.errors.count, "error") %> prohibited this estado from being saved:</h2>
+      <h2><%= pluralize(estado.errors.count, "erro") %> impediram que esse estado fosse salvo:</h2>
 
       <ul>
       <% estado.errors.full_messages.each do |message| %>
@@ -11,22 +12,35 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="mb-3">
     <%= form.label :nome %>
-    <%= form.text_field :nome %>
+    <%= form.text_field :nome, :required => true, class:'form-control' %>
+    <div class="invalid-feedback">
+      Por favor, forneça um nome para o estado.
+    </div>
   </div>
 
-  <div class="field">
+  <div class="mb-3">
     <%= form.label :descricao %>
-    <%= form.text_area :descricao %>
+    <%= form.text_area :descricao, :required => true, class:'form-control' %>
+    <div class="invalid-feedback">
+      Por favor, forneça uma descrição para o estado.
+    </div>
   </div>
 
-  <div class="field">
+  <div class="mb-3">
     <%= form.label :valor %>
-    <%= form.number_field :valor %>
+    <%= form.number_field :valor, :required => true, class:'form-control' %>
+    <div class="invalid-feedback">
+      Por favor, determine um valor para o estado.
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <hr class="mb-4">
+  <%= form.submit "Criar Estado", class:'btn btn-primary btn-lg btn-block'%>
+
 <% end %>
+
+<script>
+validarFormulario();
+</script>

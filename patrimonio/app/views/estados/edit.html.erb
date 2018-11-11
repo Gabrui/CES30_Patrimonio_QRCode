@@ -1,6 +1,15 @@
-<h1>Editing Estado</h1>
+<div class="container">
 
-<%= render 'form', estado: @estado %>
+  <div class="py-5 text-center">
+    <h2>Editar estado <%= @estado.nome%></h2>
+    <p class="lead">Mude os atributos do seu estado.</p>
+  </div>
 
-<%= link_to 'Show', @estado %> |
-<%= link_to 'Back', estados_path %>
+  <%= render 'form', estado: @estado %>
+
+  <div class='py-5'>
+    <%= link_to 'Voltar', estados_path, class:'btn btn-secondary my-2' %>
+    <%= link_to 'Detalhes', @estado, class:'btn btn-secondary my-2' %>
+  </div>
+
+</div>

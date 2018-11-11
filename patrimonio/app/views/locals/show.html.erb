@@ -1,14 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Local:</strong>
-  <%= @local.nome %>, <%= @local.sala %>, <%= @local.predio %>
-</p>
+  <div class="py-5 text-center">
+    <h2><%= @local.nome%></h2>
+  </div>
 
-<p>
-  <strong>Descrição:</strong>
-  <%= @local.descricao %>
-</p>
+  <p>
+    <strong>Local:</strong>
+    <%= @local.nome %>, <%= @local.sala %>, <%= @local.predio %>
+  </p>
 
-<%= link_to 'Editar', edit_local_path(@local) %> |
-<%= link_to 'Voltar', locals_path %>
+  <p>
+    <strong>Descrição:</strong>
+    <%= @local.descricao %>
+  </p>
+
+  <div class='py-5'>
+    <%= link_to 'Editar', edit_local_path(@local) , class:'btn btn-secondary my-2' %>
+    <%= link_to 'Voltar', locals_path, class:'btn btn-secondary my-2' %>
+  </div>
+
+</div>
