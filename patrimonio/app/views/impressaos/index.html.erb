@@ -6,15 +6,81 @@
     <p class="lead text-muted">
       Selecione vários itens para poder imprimir os códigos QR.
     </p>
+
+    <p>
+      <%= link_to 'Imprimir', '', class: 'btn btn-primary my-2', id: 'imprimir' %>
+    </p>
+
   </div>
 </section>
 
 
-<div class="album py-5 bg-light">
-  <div class="container">
-    <div class="row">
+<div class="table-responsive container">
+<table id="tabelaItens" class="table table-sm table-hover table-striped table-bordered">
+  <thead>
+    <tr>
+      <th> ID </th>
+      <th> Nome </th>
+      <th> BMP </th>
+      <th> Detentor </th>
+      <th> Local </th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= item.descricao %></td>
+        <td><%= item.silom.bmp %></td>
+        <td><%= item.usuario.nome %></td>
+        <td><%= item.local.nome %></td>
+      </tr>
+    <% end %>
+  </tbody>
 
-    </div>
-  </div>
+</table>
 </div>
+
+<script>
+$(document).ready(function() {
+  var tabelaItens = $('#tabelaItens').DataTable( {
+    language: {
+      "sEmptyTable": "Nenhum registro encontrado",
+      "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+      "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+      "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+      "sInfoPostFix": "",
+      "sInfoThousands": ".",
+      "sLengthMenu": "_MENU_ resultados por página",
+      "sLoadingRecords": "Carregando...",
+      "sProcessing": "Processando...",
+      "sZeroRecords": "Nenhum registro encontrado",
+      "sSearch": "Pesquisar",
+      "oPaginate": {
+        "sNext": "Próximo",
+        "sPrevious": "Anterior",
+        "sFirst": "Primeiro",
+        "sLast": "Último"
+      },
+      "oAria": {
+        "sSortAscending": ": Ordenar colunas de forma ascendente",
+        "sSortDescending": ": Ordenar colunas de forma descendente"
+      }
+    },
+    "columnDefs": [
+      {
+        "targets": [0],
+        "visible": false,
+        "searchable": false
+      }
+    ]
+  });
+  $('#tabelaItens tbody').on( 'click', 'tr', function () {
+      $(this).toggleClass('table-primary');
+  } );
+  $('#imprimir').click( function () {
+    alert( tabelaItens.rows('.table-primary').data().length +' row(s) selected' );
+  } );
+});
+</script>

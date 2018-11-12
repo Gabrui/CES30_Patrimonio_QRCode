@@ -19,15 +19,15 @@
         <%= link_to 'Estados', estados_path, class: 'nav-link' %>
       </li>
 
-      <li class="nav-item <%= classe_pagina_ativa(estados_path) %>">
+      <li class="nav-item <%= classe_pagina_ativa(siloms_path) %>">
         <%= link_to 'Silom', siloms_path, class: 'nav-link' %>
       </li>
 
-      <li class="nav-item <%= classe_pagina_ativa(estados_path) %>">
+      <li class="nav-item <%= classe_pagina_ativa(leituras_index_path) %>">
         <%= link_to 'Leituras', leituras_index_path, class: 'nav-link' %>
       </li>
 
-      <li class="nav-item <%= classe_pagina_ativa(estados_path) %>">
+      <li class="nav-item <%= classe_pagina_ativa(impressaos_index_path) %>">
         <%= link_to 'Impressões', impressaos_index_path, class: 'nav-link' %>
       </li>
 
@@ -35,7 +35,7 @@
 
     <ul class="navbar-nav ml-auto">
       <% if usuario_signed_in? %>
-        <li class="nav-item"><%= link_to current_usuario.email, edit_usuario_registration_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to current_usuario.nome, edit_usuario_registration_path, class: 'nav-link '+classe_pagina_ativa(edit_usuario_registration_path) %></li>
         <li class="nav-item"><%= link_to 'Sair', destroy_usuario_session_path, class: 'nav-link', method: :delete %></li>
       <% else %>
         <li class="nav-item"><%= link_to 'Entrar', new_usuario_session_path, class: 'nav-link' %></li>
