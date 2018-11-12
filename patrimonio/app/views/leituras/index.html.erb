@@ -17,9 +17,26 @@
     <canvas id="debug-canvas"></canvas>
   </div>
 
-  <input type="text" class="qrcode-text" id="cam-qr-result" size=32 placeholder="Código"><label class="qrcode-text-btn">
-  <input type="file" id="file-selector" accept="image/*" capture=environment tabindex=-1>
-  </label>
+<%= form_with(model: @leitura, local: true, class:'needs-validation', :html => {:novalidate => true}) do |form| %>
+
+  <div class="mb-3">
+    <input name='lido' type="text" class="qrcode-text" id="cam-qr-result" size=32 placeholder="Código"><label class="qrcode-text-btn">
+    <input type="file" id="file-selector" accept="image/*" capture=environment tabindex=-1>
+    </label>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :local %>
+    <%= form.select :local_id, options_for_select(Local.all.map{|s|[s.nome, s.id]}), {}, {:required => true, :class => 'custom-select d-block w-100'} %>
+    <div class="invalid-feedback">
+      Por favor, selecione um local.
+    </div>
+  </div>
+
+  <hr class="mb-4">
+  <%= form.submit 'Enviar', class:'btn btn-primary btn-lg btn-block'%>
+
+<% end %>
 
   <span id="file-qr-result"> </span>
 

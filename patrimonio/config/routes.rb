@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'leituras/index'
-  get 'impressaos/index'
+  resources :leituras, only: [:index, :create]
+  resources :impressaos, only: [:index, :create]
   resources :estados
   devise_for :usuarios
   resources :siloms do
