@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2018_11_11_234205) do
   create_table "estados", force: :cascade do |t|
     t.string "nome"
     t.text "descricao"
-    t.integer "valor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
