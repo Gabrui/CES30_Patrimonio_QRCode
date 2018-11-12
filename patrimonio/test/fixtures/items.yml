@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  qr_code: MyString
+  nome: MyString
   descricao: MyString
-  estado: MyString
-  silom: one
-  usuario: one
-  local: one
+  estado: 1
+  silom: 1
+  usuario: 1
+  local: 1
 
 two:
-  qr_code: MyString
-  descricao: MyString
-  estado: MyString
-  silom: two
-  usuario: two
-  local: two
+  nome: MyString2
+  descricao: MyString2
+  estado: 2
+  silom: 2
+  usuario: 2
+  local: 2

@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    @qr_code_string = '%d,%0.9s,%0.9s,%0.15s' % [@item.silom.bmp, @item.usuario.nome, @item.local.nome, @item.descricao]
+    @qr_code_string = '%d,%0.9s,%0.9s,%0.15s' % [@item.silom.bmp, @item.usuario.nome, @item.local.nome, @item.nome]
     @qr = RQRCode::QRCode.new(@qr_code_string)
   end
 
@@ -73,7 +73,7 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:descricao, :estado_id, :local_id, :silom_id, :usuario_id)
+      params.require(:item).permit(:nome, :estado_id, :local_id, :silom_id, :usuario_id)
     end
 
     def siloms_livres

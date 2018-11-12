@@ -26,7 +26,7 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= link_to item.descricao, item %></td>
+        <td><%= link_to item.nome, item %></td>
         <td><%= item.silom.bmp %></td>
         <td><%= item.usuario.nome %></td>
         <td><%= item.local.nome %></td>

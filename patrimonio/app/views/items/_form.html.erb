@@ -13,11 +13,16 @@
   <% end %>
 
   <div class="mb-3">
-    <%= form.label :descricao %>
-    <%= form.text_field :descricao, :required => true, class:'form-control' %>
+    <%= form.label :nome %>
+    <%= form.text_field :nome, :required => true, class:'form-control' %>
     <div class="invalid-feedback">
       Por favor, forneça um nome para o item.
     </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :descricao %>
+    <%= form.text_area :descricao, class:'form-control' %>
   </div>
 
   <div class="mb-3">

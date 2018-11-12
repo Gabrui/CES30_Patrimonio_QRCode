@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 2018_11_11_234205) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "qr_code"
-    t.string "descricao"
+    t.string "nome"
+    t.text "descricao"
     t.integer "estado_id"
     t.integer "silom_id"
     t.integer "usuario_id"
@@ -61,9 +61,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_234205) do
 
   create_table "locals", force: :cascade do |t|
     t.string "nome"
-    t.string "sala"
-    t.string "predio"
-    t.string "descricao"
+    t.text "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -93,7 +91,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_234205) do
     t.string "dependencia"
     t.string "conta"
     t.string "classe"
-    t.integer "bmp"
+    t.integer "bmp", default: 0, null: false
     t.string "nomeclatura"
     t.string "serie"
     t.string "pn"
@@ -107,10 +105,11 @@ ActiveRecord::Schema.define(version: 2018_11_11_234205) do
     t.string "situacao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["bmp"], name: "index_siloms_on_bmp", unique: true
   end
 
   create_table "usuarios", force: :cascade do |t|
-    t.string "nome"
+    t.string "nome", default: "", null: false
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -120,6 +119,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_234205) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.index ["email"], name: "index_usuarios_on_email", unique: true
+    t.index ["nome"], name: "index_usuarios_on_nome", unique: true
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
 

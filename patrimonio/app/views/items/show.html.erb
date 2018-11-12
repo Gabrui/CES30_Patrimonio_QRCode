@@ -1,12 +1,11 @@
 <div class="container">
 
   <div class="py-5 text-center">
-    <h2><%= @item.descricao%></h2>
+    <h2><%= @item.nome%></h2>
   </div>
 
   <p>
     <strong>QR Code: <%= @qr_code_string %> </strong>
-    <%= @item.qr_code %>
     <table class="qr-code">
     <% @qr.modules.each_index do |x| %>
       <tr>
@@ -22,6 +21,9 @@
     </table>
   </p>
 
+  <p>
+    <%= @item.descricao %>
+  </p>
   <p>
     <%= @item.silom.nomeclatura %>
   </p>

@@ -2,12 +2,8 @@
 
 one:
   nome: MyString
-  sala: MyString
-  predio: MyString
   descricao: MyString
 
 two:
   nome: MyString
-  sala: MyString
-  predio: MyString
   descricao: MyString

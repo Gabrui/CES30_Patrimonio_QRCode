@@ -6,6 +6,6 @@ class SilomsController < ApplicationController
   def import
     Silom.import(params[:file])
     #after the import, redirect and tell us the method worked!
-    redirect_to root_url, notice: "Data imported!"
+    redirect_to root_url, notice: "Dados Importados!"
   end
 end
