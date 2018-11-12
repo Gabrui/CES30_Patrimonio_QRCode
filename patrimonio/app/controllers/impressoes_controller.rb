@@ -1,7 +1,7 @@
-class ImpressaosController < ApplicationController
+class ImpressoesController < ApplicationController
 
   def index
-    @items = Item.all
+    @itens = Item.all
   end
 
   def imprimir
@@ -15,7 +15,7 @@ class ImpressaosController < ApplicationController
       format.html
       format.pdf do
         render pdf: "file_name",   # Excluding ".pdf" extension.
-          template: "impressaos/imprimir.html.erb",
+          template: "impressoes/imprimir.html.erb",
           layout: 'pdf.html'
       end
     end

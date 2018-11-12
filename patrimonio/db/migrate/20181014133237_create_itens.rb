@@ -1,6 +1,6 @@
-class CreateItems < ActiveRecord::Migration[5.2]
+class CreateItens < ActiveRecord::Migration[5.2]
   def change
-    create_table :items do |t|
+    create_table :itens do |t|
       t.string :nome
       t.text :descricao
       

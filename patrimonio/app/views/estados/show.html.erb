@@ -9,11 +9,6 @@
     <%= @estado.descricao %>
   </p>
 
-  <p>
-    <strong>Valor:</strong>
-    <%= @estado.valor %>
-  </p>
-
   <div class='py-5'>
     <%= link_to 'Editar', edit_estado_path(@estado) , class:'btn btn-secondary my-2' %>
     <%= link_to 'Voltar', estados_path, class:'btn btn-secondary my-2' %>

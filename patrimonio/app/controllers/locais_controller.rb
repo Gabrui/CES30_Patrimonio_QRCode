@@ -1,28 +1,28 @@
-class LocalsController < ApplicationController
+class LocaisController < ApplicationController
   before_action :set_local, only: [:show, :edit, :update, :destroy]
 
-  # GET /locals
-  # GET /locals.json
+  # GET /locais
+  # GET /locais.json
   def index
-    @locals = Local.all
+    @locais = Local.all
   end
 
-  # GET /locals/1
-  # GET /locals/1.json
+  # GET /locais/1
+  # GET /locais/1.json
   def show
   end
 
-  # GET /locals/new
+  # GET /locais/new
   def new
     @local = Local.new
   end
 
-  # GET /locals/1/edit
+  # GET /locais/1/edit
   def edit
   end
 
-  # POST /locals
-  # POST /locals.json
+  # POST /locais
+  # POST /locais.json
   def create
     @local = Local.new(local_params)
 
@@ -37,8 +37,8 @@ class LocalsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /locals/1
-  # PATCH/PUT /locals/1.json
+  # PATCH/PUT /locais/1
+  # PATCH/PUT /locais/1.json
   def update
     respond_to do |format|
       if @local.update(local_params)
@@ -51,12 +51,12 @@ class LocalsController < ApplicationController
     end
   end
 
-  # DELETE /locals/1
-  # DELETE /locals/1.json
+  # DELETE /locais/1
+  # DELETE /locais/1.json
   def destroy
     @local.destroy
     respond_to do |format|
-      format.html { redirect_to locals_url, notice: 'Local apagado com sucesso.' }
+      format.html { redirect_to locais_url, notice: 'Local apagado com sucesso.' }
       format.json { head :no_content }
     end
   end

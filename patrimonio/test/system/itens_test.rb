@@ -1,17 +1,17 @@
 require "application_system_test_case"
 
-class ItemsTest < ApplicationSystemTestCase
+class ItensTest < ApplicationSystemTestCase
   setup do
-    @item = items(:one)
+    @item = itens(:one)
   end
 
   test "visiting the index" do
-    visit items_url
-    assert_selector "h1", text: "Items"
+    visit itens_url
+    assert_selector "h1", text: "Itens"
   end
 
   test "creating a Item" do
-    visit items_url
+    visit itens_url
     click_on "New Item"
 
     click_on "Create Item"
@@ -21,7 +21,7 @@ class ItemsTest < ApplicationSystemTestCase
   end
 
   test "updating a Item" do
-    visit items_url
+    visit itens_url
     click_on "Edit", match: :first
 
     click_on "Update Item"
@@ -31,7 +31,7 @@ class ItemsTest < ApplicationSystemTestCase
   end
 
   test "destroying a Item" do
-    visit items_url
+    visit itens_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end

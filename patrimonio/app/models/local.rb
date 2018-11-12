@@ -1,3 +1,3 @@
 class Local < ApplicationRecord
-    has_many :items
+    has_many :itens
 end

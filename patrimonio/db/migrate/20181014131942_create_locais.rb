@@ -1,6 +1,6 @@
-class CreateLocals < ActiveRecord::Migration[5.2]
+class CreateLocais < ActiveRecord::Migration[5.2]
   def change
-    create_table :locals do |t|
+    create_table :locais do |t|
       t.string :nome
       t.text :descricao
 

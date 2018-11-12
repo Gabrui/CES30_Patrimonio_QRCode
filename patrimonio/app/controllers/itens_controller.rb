@@ -1,31 +1,31 @@
-class ItemsController < ApplicationController
+class ItensController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  # GET /items
-  # GET /items.json
+  # GET /itens
+  # GET /itens.json
   def index
-    @items = Item.all
+    @itens = Item.all
   end
 
-  # GET /items/1
-  # GET /items/1.json
+  # GET /itens/1
+  # GET /itens/1.json
   def show
     @qr_code_string = '%d,%0.9s,%0.9s,%0.15s' % [@item.silom.bmp, @item.usuario.nome, @item.local.nome, @item.nome]
     @qr = RQRCode::QRCode.new(@qr_code_string)
   end
 
-  # GET /items/new
+  # GET /itens/new
   def new
     @item = Item.new
     @siloms = siloms_livres
   end
 
-  # GET /items/1/edit
+  # GET /itens/1/edit
   def edit
   end
 
-  # POST /items
-  # POST /items.json
+  # POST /itens
+  # POST /itens.json
   def create
     @item = Item.new(item_params)
     @siloms = siloms_livres
@@ -40,8 +40,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /items/1
-  # PATCH/PUT /items/1.json
+  # PATCH/PUT /itens/1
+  # PATCH/PUT /itens/1.json
   def update
     respond_to do |format|
       if @item.update(item_params)
@@ -54,12 +54,12 @@ class ItemsController < ApplicationController
     end
   end
 
-  # DELETE /items/1
-  # DELETE /items/1.json
+  # DELETE /itens/1
+  # DELETE /itens/1.json
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item apagado com sucesso' }
+      format.html { redirect_to itens_url, notice: 'Item apagado com sucesso' }
       format.json { head :no_content }
     end
   end
@@ -77,6 +77,6 @@ class ItemsController < ApplicationController
     end
 
     def siloms_livres
-      Silom.left_outer_joins(:item).where(items: {id: nil}).select(:id,:nomeclatura).uniq{ |p| p.nomeclatura }.map { |m| [m.nomeclatura, m.id]}
+      Silom.left_outer_joins(:item).where(itens: {id: nil}).select(:id,:nomeclatura).uniq{ |p| p.nomeclatura }.map { |m| [m.nomeclatura, m.id]}
     end
 end

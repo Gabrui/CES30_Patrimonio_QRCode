@@ -1,12 +1,12 @@
 require 'test_helper'
 
-class LocalsControllerTest < ActionDispatch::IntegrationTest
+class LocaisControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @local = locals(:one)
+    @local = locais(:one)
   end
 
   test "should get index" do
-    get locals_url
+    get locais_url
     assert_response :success
   end
 
@@ -17,7 +17,7 @@ class LocalsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create local" do
     assert_difference('Local.count') do
-      post locals_url, params: { local: {  } }
+      post locais_url, params: { local: {  } }
     end
 
     assert_redirected_to local_url(Local.last)
@@ -43,6 +43,6 @@ class LocalsControllerTest < ActionDispatch::IntegrationTest
       delete local_url(@local)
     end
 
-    assert_redirected_to locals_url
+    assert_redirected_to locais_url
   end
 end

@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   belongs_to :usuario
   belongs_to :local
 
-  has_many :impressaos
+  has_many :impressoes
   has_many :leituras
 
 end

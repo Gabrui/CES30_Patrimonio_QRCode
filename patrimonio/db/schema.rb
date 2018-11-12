@@ -20,18 +20,18 @@ ActiveRecord::Schema.define(version: 2018_11_11_234205) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "impressaos", force: :cascade do |t|
+  create_table "impressoes", force: :cascade do |t|
     t.integer "usuario_id"
     t.datetime "dia"
     t.integer "item_id"
     t.string "gerado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_impressaos_on_item_id"
-    t.index ["usuario_id"], name: "index_impressaos_on_usuario_id"
+    t.index ["item_id"], name: "index_impressoes_on_item_id"
+    t.index ["usuario_id"], name: "index_impressoes_on_usuario_id"
   end
 
-  create_table "items", force: :cascade do |t|
+  create_table "itens", force: :cascade do |t|
     t.string "nome"
     t.text "descricao"
     t.integer "estado_id"
@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 2018_11_11_234205) do
     t.integer "local_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["estado_id"], name: "index_items_on_estado_id"
-    t.index ["local_id"], name: "index_items_on_local_id"
-    t.index ["silom_id"], name: "index_items_on_silom_id"
-    t.index ["usuario_id"], name: "index_items_on_usuario_id"
+    t.index ["estado_id"], name: "index_itens_on_estado_id"
+    t.index ["local_id"], name: "index_itens_on_local_id"
+    t.index ["silom_id"], name: "index_itens_on_silom_id"
+    t.index ["usuario_id"], name: "index_itens_on_usuario_id"
   end
 
   create_table "leituras", force: :cascade do |t|
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_234205) do
     t.index ["usuario_id"], name: "index_leituras_on_usuario_id"
   end
 
-  create_table "locals", force: :cascade do |t|
+  create_table "locais", force: :cascade do |t|
     t.string "nome"
     t.text "descricao"
     t.datetime "created_at", null: false

@@ -1,21 +1,25 @@
 <section class="jumbotron text-center">
   <div class="container">
     <h1 class="jumbotron-heading">
-      Itens
+      Impressão
     </h1>
     <p class="lead text-muted">
-      Crie itens a partir dos Siloms.
+      Selecione vários itens para poder imprimir os códigos QR.
     </p>
+
     <p>
-      <%= link_to 'Novo Item', new_item_path, class: 'btn btn-primary my-2' %>
+      <%= link_to 'Imprimir', '/imprimir', class: 'btn btn-primary my-2', id: 'imprimir' %>
     </p>
+
   </div>
 </section>
+
 
 <div class="table-responsive container">
 <table id="tabelaItens" class="table table-sm table-hover table-striped table-bordered">
   <thead>
     <tr>
+      <th> ID </th>
       <th> Nome </th>
       <th> BMP </th>
       <th> Detentor </th>
@@ -24,9 +28,10 @@
   </thead>
 
   <tbody>
-    <% @items.each do |item| %>
+    <% @itens.each do |item| %>
       <tr>
-        <td><%= link_to item.nome, item %></td>
+        <td><%= item.id %></td>
+        <td><%= item.nome %></td>
         <td><%= item.silom.bmp %></td>
         <td><%= item.usuario.nome %></td>
         <td><%= item.local.nome %></td>
@@ -39,7 +44,7 @@
 
 <script>
 $(document).ready(function() {
-  $('#tabelaItens').DataTable( {
+  var tabelaItens = $('#tabelaItens').DataTable( {
     language: {
       "sEmptyTable": "Nenhum registro encontrado",
       "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -62,7 +67,20 @@ $(document).ready(function() {
         "sSortAscending": ": Ordenar colunas de forma ascendente",
         "sSortDescending": ": Ordenar colunas de forma descendente"
       }
-    }
+    },
+    "columnDefs": [
+      {
+        "targets": [0],
+        "visible": false,
+        "searchable": false
+      }
+    ]
   });
+  $('#tabelaItens tbody').on( 'click', 'tr', function () {
+      $(this).toggleClass('table-primary');
+  } );
+  $('#imprimir').click( function () {
+    alert( tabelaItens.rows('.table-primary').data().length +' row(s) selected' );
+  } );
 });
 </script>
