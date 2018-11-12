@@ -34,6 +34,14 @@
   </div>
 
   <div class="mb-3">
+    <%= form.label :categoria %>
+    <%= form.select :categoria_id, options_for_select(Categoria.all.map{|s|[s.nome, s.id]}, :selected => @item.categoria_id), {}, {:required => true, :class => 'custom-select d-block w-100'} %>
+    <div class="invalid-feedback">
+      Por favor, selecione uma categoria.
+    </div>
+  </div>
+
+  <div class="mb-3">
     <%= form.label :local %>
     <%= form.select :local_id, options_for_select(Local.all.map{|s|[s.nome, s.id]}, :selected => @item.local_id), {}, {:required => true, :class => 'custom-select d-block w-100'} %>
     <div class="invalid-feedback">

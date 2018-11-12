@@ -1,0 +1,15 @@
+<div class="container">
+
+  <div class="py-5 text-center">
+    <h2>Editar categoria <%= @categoria.nome%></h2>
+    <p class="lead">Mude os atributos do seu categoria.</p>
+  </div>
+
+  <%= render 'form', categoria: @categoria %>
+
+  <div class='py-5'>
+    <%= link_to 'Voltar', categorias_path, class:'btn btn-secondary my-2' %>
+    <%= link_to 'Detalhes', @categoria, class:'btn btn-secondary my-2' %>
+  </div>
+
+</div>

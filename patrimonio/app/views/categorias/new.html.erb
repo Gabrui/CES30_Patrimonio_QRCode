@@ -1,0 +1,14 @@
+<div class="container">
+
+  <div class="py-5 text-center">
+    <h2>Novo Categoria</h2>
+    <p class="lead">Crie uma nova categoria para um item.</p>
+  </div>
+
+  <%= render 'form', categoria: @categoria %>
+
+  <div class='py-5'>
+    <%= link_to 'Voltar', categorias_path , class:'btn btn-secondary my-2' %>
+  </div>
+
+</div>

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_234205) do
+ActiveRecord::Schema.define(version: 2018_11_12_232801) do
+
+  create_table "categorias", force: :cascade do |t|
+    t.string "nome"
+    t.text "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "estados", force: :cascade do |t|
     t.string "nome"
@@ -37,8 +44,10 @@ ActiveRecord::Schema.define(version: 2018_11_11_234205) do
     t.integer "silom_id"
     t.integer "usuario_id"
     t.integer "local_id"
+    t.integer "categoria_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["categoria_id"], name: "index_itens_on_categoria_id"
     t.index ["estado_id"], name: "index_itens_on_estado_id"
     t.index ["local_id"], name: "index_itens_on_local_id"
     t.index ["silom_id"], name: "index_itens_on_silom_id"

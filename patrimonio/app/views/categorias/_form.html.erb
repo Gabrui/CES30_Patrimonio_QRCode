@@ -1,0 +1,38 @@
+<%= form_with(model: categoria, local: true, class:'needs-validation', :html => {:novalidate => true}) do |form| %>
+
+  <% if categoria.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(categoria.errors.count, "erro") %> impediram que esse categoria fosse salvo:</h2>
+
+      <ul>
+      <% categoria.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, :required => true, class:'form-control' %>
+    <div class="invalid-feedback">
+      Por favor, forneça um nome para o categoria.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :descricao %>
+    <%= form.text_area :descricao, :required => true, class:'form-control' %>
+    <div class="invalid-feedback">
+      Por favor, forneça uma descrição para o categoria.
+    </div>
+  </div>
+
+  <hr class="mb-4">
+  <%= form.submit "Criar Categoria", class:'btn btn-primary btn-lg btn-block'%>
+
+<% end %>
+
+<script>
+validarFormulario();
+</script>

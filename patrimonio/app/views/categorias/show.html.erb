@@ -1,0 +1,17 @@
+<div class="container">
+
+  <div class="py-5 text-center">
+    <h2><%= @categoria.nome%></h2>
+  </div>
+
+  <p>
+    <strong>Descricao:</strong>
+    <%= @categoria.descricao %>
+  </p>
+
+  <div class='py-5'>
+    <%= link_to 'Editar', edit_categoria_path(@categoria) , class:'btn btn-secondary my-2' %>
+    <%= link_to 'Voltar', categorias_path, class:'btn btn-secondary my-2' %>
+  </div>
+
+</div>

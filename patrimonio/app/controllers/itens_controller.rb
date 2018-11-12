@@ -73,7 +73,7 @@ class ItensController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:nome, :estado_id, :local_id, :silom_id, :usuario_id)
+      params.require(:item).permit(:nome, :estado_id, :local_id, :silom_id, :usuario_id, :categoria_id)
     end
 
     def siloms_livres
