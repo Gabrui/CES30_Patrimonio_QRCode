@@ -20,7 +20,7 @@
 <%= form_with(model: @leitura, local: true, class:'needs-validation', :html => {:novalidate => true}) do |form| %>
 
   <div class="mb-3">
-    <input name='lido' type="text" class="qrcode-text" id="cam-qr-result" size=32 placeholder="Código"><label class="qrcode-text-btn">
+    <input name='leitura[lido]' type="text" class="qrcode-text" id="cam-qr-result" size=32 placeholder="Código"><label class="qrcode-text-btn">
     <input type="file" id="file-selector" accept="image/*" capture=environment tabindex=-1>
     </label>
   </div>
