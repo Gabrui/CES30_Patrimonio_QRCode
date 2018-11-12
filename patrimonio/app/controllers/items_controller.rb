@@ -77,6 +77,6 @@ class ItemsController < ApplicationController
     end
 
     def siloms_livres
-      Silom.select(:id,:nomeclatura).uniq{ |p| p.nomeclatura }.map { |m| [m.nomeclatura, m.id]}
+      Silom.left_outer_joins(:item).where(items: {id: nil}).select(:id,:nomeclatura).uniq{ |p| p.nomeclatura }.map { |m| [m.nomeclatura, m.id]}
     end
 end
