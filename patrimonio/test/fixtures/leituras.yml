@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: one
+  dia: 2018-11-11 21:42:05
+  lido: MyString
+  local: one
+  item: one
+
+two:
+  usuario: two
+  dia: 2018-11-11 21:42:05
+  lido: MyString
+  local: two
+  item: two

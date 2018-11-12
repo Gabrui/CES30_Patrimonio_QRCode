@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: one
+  dia: 2018-11-11 21:35:37
+  item: one
+  gerado: MyString
+
+two:
+  usuario: two
+  dia: 2018-11-11 21:35:37
+  item: two
+  gerado: MyString

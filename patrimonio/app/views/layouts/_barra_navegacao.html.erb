@@ -23,6 +23,14 @@
         <%= link_to 'Silom', siloms_path, class: 'nav-link' %>
       </li>
 
+      <li class="nav-item <%= classe_pagina_ativa(estados_path) %>">
+        <%= link_to 'Leituras', leituras_index_path, class: 'nav-link' %>
+      </li>
+
+      <li class="nav-item <%= classe_pagina_ativa(estados_path) %>">
+        <%= link_to 'Impressões', impressaos_index_path, class: 'nav-link' %>
+      </li>
+
     </ul>
 
     <ul class="navbar-nav ml-auto">

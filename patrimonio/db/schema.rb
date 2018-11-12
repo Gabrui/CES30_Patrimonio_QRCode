@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_110429) do
+ActiveRecord::Schema.define(version: 2018_11_11_234205) do
 
   create_table "estados", force: :cascade do |t|
     t.string "nome"
@@ -18,6 +18,17 @@ ActiveRecord::Schema.define(version: 2018_10_29_110429) do
     t.integer "valor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "impressaos", force: :cascade do |t|
+    t.integer "usuario_id"
+    t.datetime "dia"
+    t.integer "item_id"
+    t.string "gerado"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_impressaos_on_item_id"
+    t.index ["usuario_id"], name: "index_impressaos_on_usuario_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -33,6 +44,19 @@ ActiveRecord::Schema.define(version: 2018_10_29_110429) do
     t.index ["local_id"], name: "index_items_on_local_id"
     t.index ["silom_id"], name: "index_items_on_silom_id"
     t.index ["usuario_id"], name: "index_items_on_usuario_id"
+  end
+
+  create_table "leituras", force: :cascade do |t|
+    t.integer "usuario_id"
+    t.datetime "dia"
+    t.string "lido"
+    t.integer "local_id"
+    t.integer "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_leituras_on_item_id"
+    t.index ["local_id"], name: "index_leituras_on_local_id"
+    t.index ["usuario_id"], name: "index_leituras_on_usuario_id"
   end
 
   create_table "locals", force: :cascade do |t|

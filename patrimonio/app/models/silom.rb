@@ -1,5 +1,5 @@
 class Silom < ApplicationRecord
-  has_many :items
+  has_one :item
 
   require 'csv'
 
