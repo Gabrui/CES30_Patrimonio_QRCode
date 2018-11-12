@@ -42,7 +42,7 @@
   </div>
 
   <div class="mb-3">
-    <%= form.label 'Detentor' %>
+    <%= form.label 'Responsável' %>
     <%= form.select :usuario_id, options_for_select(Usuario.all.map{|s|[s.nome, s.id]}, :selected => @item.usuario_id), {}, {:required => true, :class => 'custom-select d-block w-100'} %>
     <div class="invalid-feedback">
       Por favor, selecione um detentor.

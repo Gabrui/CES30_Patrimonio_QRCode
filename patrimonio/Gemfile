@@ -75,3 +75,6 @@ gem 'rqrcode-with-patches'
 
 gem 'rails-i18n', '~> 5.1'
 gem 'devise-i18n'
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

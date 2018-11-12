@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :leituras, only: [:index, :create]
   resources :impressaos, only: [:index, :create]
+  get '/imprimir' => 'impressaos#imprimir'
   resources :estados
   devise_for :usuarios
   resources :siloms do

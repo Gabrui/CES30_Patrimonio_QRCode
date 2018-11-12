@@ -4,6 +4,23 @@ class ImpressaosController < ApplicationController
     @items = Item.all
   end
 
+  def imprimir
+    @item = Item.all[0]
+    @qr_code_string = '%d,%0.9s,%0.9s,%0.15s' % [@item.silom.bmp, @item.usuario.nome, @item.local.nome, @item.nome]
+    @qr = RQRCode::QRCode.new(@qr_code_string)
+    @svg = @qr.as_svg(offset: 0, color: '000', 
+                    shape_rendering: 'crispEdges', 
+                    module_size: 11)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name",   # Excluding ".pdf" extension.
+          template: "impressaos/imprimir.html.erb",
+          layout: 'pdf.html'
+      end
+    end
+  end
+
   def create
     @impressao = Impressao.new(impressao_params)
 =begin
