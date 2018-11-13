@@ -18,5 +18,6 @@ module Patrimonio
     
     # Linguagem padrão é portugues
     config.i18n.default_locale = 'pt-BR'
+    config.time_zone = "Brasilia"
   end
 end

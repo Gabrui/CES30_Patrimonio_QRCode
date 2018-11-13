@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2018_11_12_232801) do
     t.integer "usuario_id"
     t.integer "local_id"
     t.integer "categoria_id"
+    t.datetime "catalogacao"
+    t.datetime "exclusao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["categoria_id"], name: "index_itens_on_categoria_id"
