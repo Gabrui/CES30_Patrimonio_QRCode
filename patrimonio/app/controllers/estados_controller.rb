@@ -1,6 +1,6 @@
 class EstadosController < ApplicationController
   before_action :set_estado, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize_estado, only: [:new,:create, :edit, :update, :destroy] 
   # GET /estados
   # GET /estados.json
   def index
@@ -70,5 +70,9 @@ class EstadosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def estado_params
       params.require(:estado).permit(:nome, :descricao)
+    end
+
+    def authorize_estado
+        authorize Estado
     end
 end

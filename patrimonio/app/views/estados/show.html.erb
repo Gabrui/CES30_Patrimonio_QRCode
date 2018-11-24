@@ -10,7 +10,9 @@
   </p>
 
   <div class='py-5'>
+     <%if policy(Estado).edit? %>
     <%= link_to 'Editar', edit_estado_path(@estado) , class:'btn btn-secondary my-2' %>
+     <%end%>
     <%= link_to 'Voltar', estados_path, class:'btn btn-secondary my-2' %>
   </div>
 

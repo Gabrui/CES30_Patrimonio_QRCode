@@ -7,7 +7,9 @@
       Gerencie os estados que os itens podem assumir.
     </p>
     <p>
+      <%if policy(Estado).new? %>
       <%= link_to 'Novo Estado', new_estado_path, class: 'btn btn-primary my-2' %>
+      <%end%>
     </p>
   </div>
 </section>
@@ -28,8 +30,12 @@
             </p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
+                 <%if policy(Estado).edit? %>
                 <%= link_to 'Editar', edit_estado_path(estado), class:'btn btn-sm btn-outline-secondary' %>
+                 <%end%>
+                 <%if policy(Estado).destroy? %>
                 <%= link_to 'Apagar', estado, method: :delete, data: { confirm: 'Confirma apagar?' }, class:'btn btn-sm btn-outline-secondary' %>
+               <%end%>
               </div>
               <small class="text-muted"></small>
             </div>
