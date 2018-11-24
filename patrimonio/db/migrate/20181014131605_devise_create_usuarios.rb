@@ -3,6 +3,7 @@ class DeviseCreateUsuarios < ActiveRecord::Migration[5.2]
     create_table :usuarios do |t|
       t.string :nome, null: false, default: ""
       t.string :status
+      t.boolean :admin
       t.timestamps
 
       ## Database authenticatable

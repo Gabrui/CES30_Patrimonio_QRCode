@@ -1,6 +1,6 @@
 class CategoriasController < ApplicationController
   before_action :set_categoria, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize_categoria, only: [:create, :new, :edit, :update, :destroy]
   # GET /categorias
   # GET /categorias.json
   def index
@@ -70,5 +70,9 @@ class CategoriasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def categoria_params
       params.require(:categoria).permit(:nome, :descricao)
+    end
+
+    def authorize_categoria
+       authorize Categoria
     end
 end

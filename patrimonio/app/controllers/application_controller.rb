@@ -11,4 +11,16 @@ class ApplicationController < ActionController::Base
     #devise_parameter_sanitizer.permit(:account_update, keys: [:nome])
   end
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  private
+
+  def user_not_authorized
+     redirect_to root_path
+  end
+
+  def pundit_user
+     current_usuario
+  end
+
 end
