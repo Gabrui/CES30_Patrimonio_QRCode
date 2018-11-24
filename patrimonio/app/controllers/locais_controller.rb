@@ -10,6 +10,7 @@ class LocaisController < ApplicationController
   # GET /locais/1
   # GET /locais/1.json
   def show
+    @itens = @local.itens
   end
 
   # GET /locais/new

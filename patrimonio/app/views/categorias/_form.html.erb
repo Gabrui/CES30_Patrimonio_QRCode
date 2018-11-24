@@ -29,7 +29,7 @@
   </div>
 
   <hr class="mb-4">
-  <%= form.submit "Criar Categoria", class:'btn btn-primary btn-lg btn-block'%>
+  <%= form.submit (@categoria.persisted? ? 'Atualizar' : 'Criar') + ' Categoria', class:'btn btn-primary btn-lg btn-block'%>
 
 <% end %>
 

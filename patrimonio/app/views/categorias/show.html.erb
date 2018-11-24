@@ -9,6 +9,8 @@
     <%= @categoria.descricao %>
   </p>
 
+  <%= render 'layouts/tabela_itens', itens: @categoria.itens %>
+
   <div class='py-5'>
      <%if policy(Categoria).edit? %>
     <%= link_to 'Editar', edit_categoria_path(@categoria) , class:'btn btn-secondary my-2' %>

@@ -14,6 +14,8 @@
     <%= @local.descricao %>
   </p>
 
+  <%= render 'layouts/tabela_itens', itens: @itens %>
+
   <div class='py-5'>
      <%if policy(Local).edit?%>
     <%= link_to 'Editar', edit_local_path(@local) , class:'btn btn-secondary my-2' %>

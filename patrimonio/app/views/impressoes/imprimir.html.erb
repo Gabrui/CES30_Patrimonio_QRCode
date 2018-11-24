@@ -1,5 +1,7 @@
-<div style='width: 350px; text-align: center; float:left; margin: 20px;'>
-  <p> <%= @qr_code_string %> </p>
+<% for i in 0..(@itens.length-1) %>
+  <div style='width: 350px; text-align: center; float:left; margin: 20px;'>
+    <p> <%= @qr_code_strings[i] %> </p>
 
-  <%= @svg.html_safe %>
-</div>
+    <%= @svgs[i].html_safe %>
+  </div>
+<% end %>

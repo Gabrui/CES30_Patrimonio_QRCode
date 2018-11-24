@@ -29,7 +29,7 @@
   </div>
 
   <hr class="mb-4">
-  <%= form.submit "Criar Estado", class:'btn btn-primary btn-lg btn-block'%>
+  <%= form.submit (@estado.persisted? ? 'Atualizar' : 'Criar') + ' Estado', class:'btn btn-primary btn-lg btn-block'%>
 
 <% end %>
 

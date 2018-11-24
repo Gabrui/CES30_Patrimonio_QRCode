@@ -1,19 +1,6 @@
-<section class="jumbotron text-center">
-  <div class="container">
-    <h1 class="jumbotron-heading">
-      Impressão
-    </h1>
-    <p class="lead text-muted">
-      Selecione vários itens para poder imprimir os códigos QR.
-    </p>
-
-    <p>
-      <%= link_to 'Imprimir', '/imprimir.pdf?itens=', class: 'btn btn-primary my-2', id: 'imprimir' %>
-    </p>
-
-  </div>
-</section>
-
+<p>
+  <%= link_to 'Imprimir itens', '/imprimir.pdf?itens=', class: 'btn btn-primary my-2', id: 'imprimir' %>
+</p>
 
 <div class="table-responsive container">
 <table id="tabelaItens" class="table table-sm table-hover table-striped table-bordered">
@@ -28,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @itens.each do |item| %>
+    <% itens.each do |item| %>
       <tr>
         <td><%= item.id %></td>
         <td><%= item.nome %></td>
@@ -87,8 +74,6 @@ $(document).ready(function() {
     }
     codigo = codigo.substr(0, codigo.length-1);
     $('#imprimir')[0].href = '/imprimir.pdf?itens='+codigo;
-    console.log($('#imprimir')[0].href);
-    //alert( tabelaItens.rows('.table-primary').data().length +' row(s) selected' );
   } );
 });
 </script>

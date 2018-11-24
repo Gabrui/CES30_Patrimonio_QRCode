@@ -9,6 +9,8 @@
     <%= @estado.descricao %>
   </p>
 
+  <%= render 'layouts/tabela_itens', itens: @estado.itens %>
+
   <div class='py-5'>
      <%if policy(Estado).edit? %>
     <%= link_to 'Editar', edit_estado_path(@estado) , class:'btn btn-secondary my-2' %>
