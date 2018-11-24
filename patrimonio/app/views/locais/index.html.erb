@@ -7,7 +7,9 @@
       Gerencie os locais aos quais os itens podem pertencer.
     </p>
     <p>
+       <%if policy(Local).new? %>
       <%= link_to 'Novo Local', new_local_path, class: 'btn btn-primary my-2' %>
+        <%end%>
     </p>
   </div>
 </section>
@@ -28,8 +30,12 @@
             </p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
+                 <%if policy(Local).edit? %>
                 <%= link_to 'Editar', edit_local_path(local), class:'btn btn-sm btn-outline-secondary' %>
+                 <%end%>
+                 <%if policy(Local).destroy? %>
                 <%= link_to 'Apagar', local, method: :delete, data: { confirm: 'Confirma apagar?' }, class:'btn btn-sm btn-outline-secondary' %>
+                <%end%>
               </div>
               <small class="text-muted"></small>
             </div>

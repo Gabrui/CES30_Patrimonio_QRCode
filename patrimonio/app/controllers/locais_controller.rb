@@ -1,6 +1,6 @@
 class LocaisController < ApplicationController
   before_action :set_local, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize_local, only: [:new,:create, :edit, :update, :destroy]
   # GET /locais
   # GET /locais.json
   def index
@@ -70,5 +70,9 @@ class LocaisController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def local_params
       params.require(:local).permit(:nome, :descricao,:sala,:departamento,:predio,:instituicao)
+    end
+
+    def authorize_local
+        authorize Local
     end
 end
