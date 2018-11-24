@@ -21,7 +21,30 @@
   </div>
 
   <div class="mb-3">
-    <%= form.label :descricao %>
+    <%= form.label :sala %>
+    <%= form.text_field :sala, :required => true, class:'form-control' %>
+    <div class="invalid-feedback">
+      Por gentileza, forneça uma sala para o local.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :departamento %>
+    <%= form.text_field :departamento, class:'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label "Prédio" %>
+    <%= form.text_field :predio, class:'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label "Instituição" %>
+    <%= form.text_field :instituicao, class:'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label "Descrição" %>
     <%= form.text_area :descricao, class:'form-control' %>
   </div>
 
