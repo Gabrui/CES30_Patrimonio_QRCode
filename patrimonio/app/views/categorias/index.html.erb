@@ -19,7 +19,9 @@
       Gerencie as categorias que os itens podem assumir.
     </p>
     <p>
+       <%if policy(Categoria).new? %>
       <%= link_to 'Nova Categoria', new_categoria_path, class: 'btn btn-primary my-2' %>
+       <%end%>
     </p>
   </div>
 </section>
@@ -40,8 +42,12 @@
             </p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
+                 <%if policy(Categoria).edit? %>
                 <%= link_to 'Editar', edit_categoria_path(categoria), class:'btn btn-sm btn-outline-secondary' %>
+                 <%end%>
+                 <%if policy(Categoria).destroy? %>
                 <%= link_to 'Apagar', categoria, method: :delete, data: { confirm: 'Confirma apagar?' }, class:'btn btn-sm btn-outline-secondary' %>
+               <%end%>
               </div>
               <small class="text-muted"></small>
             </div>
