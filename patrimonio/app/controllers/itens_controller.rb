@@ -5,6 +5,10 @@ class ItensController < ApplicationController
   # GET /itens.json
   def index
     @itens = Item.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @itens.to_csv, filename: "itens-#{Date.today}.csv" }
+    end
   end
 
   # GET /itens/1

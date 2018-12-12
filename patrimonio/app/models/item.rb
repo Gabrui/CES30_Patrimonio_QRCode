@@ -8,4 +8,17 @@ class Item < ApplicationRecord
   has_many :impressoes
   has_many :leituras
 
+  def self.to_csv
+    attributes = %w{id nome descricao silom estado local usuario categoria catalogacao}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |user|
+        csv << attributes.map{ |attr| user.send(attr) }
+      end
+    end
+
+  end
+
 end

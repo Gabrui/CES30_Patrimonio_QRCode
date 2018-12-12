@@ -3,6 +3,7 @@
 Este é um projeto de Gerenciador de Patrimônio feito em ruby. Essa aplicação levanta um servidor local com banco de dados que guarda os items do patrimônio, os usuários cadastrados (tipicamente são responsáveis), os locais, estados dos items e relaciona os items com a base de dados SILOMS (importada por planilha .csv com codificacao utf-8). O banco de dados também guarda o QRCode dos items que é gerado a partir de atribuitos do items, como o seu local, o seu estado e responsável.
 
 * Ruby version 2.5.1
+https://rvm.io/rvm/install
 
 * Dependências do sistema são gerenciados pela ferramenta bundler. 
   
@@ -30,3 +31,8 @@ Este é um projeto de Gerenciador de Patrimônio feito em ruby. Essa aplicação
                                     Prof. Doutor Inaldo Capistrano Costa, scrum-master
                                     Marcos Antonio dos Santos, idealizador do projeto - P.O.
                                     Prof. Doutor José Maria Parente Oliveira, P.O.
+
+
+## Produção
+
+Servidor debian 9.6

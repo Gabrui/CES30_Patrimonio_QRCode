@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_232801) do
+ActiveRecord::Schema.define(version: 2018_11_11_234205) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "categorias", force: :cascade do |t|
     t.string "nome"
@@ -27,9 +30,9 @@ ActiveRecord::Schema.define(version: 2018_11_12_232801) do
   end
 
   create_table "impressoes", force: :cascade do |t|
-    t.integer "usuario_id"
+    t.bigint "usuario_id"
     t.datetime "dia"
-    t.integer "item_id"
+    t.bigint "item_id"
     t.string "gerado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,11 +43,11 @@ ActiveRecord::Schema.define(version: 2018_11_12_232801) do
   create_table "itens", force: :cascade do |t|
     t.string "nome"
     t.text "descricao"
-    t.integer "estado_id"
-    t.integer "silom_id"
-    t.integer "usuario_id"
-    t.integer "local_id"
-    t.integer "categoria_id"
+    t.bigint "estado_id"
+    t.bigint "silom_id"
+    t.bigint "usuario_id"
+    t.bigint "local_id"
+    t.bigint "categoria_id"
     t.datetime "catalogacao"
     t.datetime "exclusao"
     t.datetime "created_at", null: false
@@ -57,11 +60,11 @@ ActiveRecord::Schema.define(version: 2018_11_12_232801) do
   end
 
   create_table "leituras", force: :cascade do |t|
-    t.integer "usuario_id"
+    t.bigint "usuario_id"
     t.datetime "dia"
     t.string "lido"
-    t.integer "local_id"
-    t.integer "item_id"
+    t.bigint "local_id"
+    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_leituras_on_item_id"
@@ -138,4 +141,14 @@ ActiveRecord::Schema.define(version: 2018_11_12_232801) do
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "impressoes", "itens"
+  add_foreign_key "impressoes", "usuarios"
+  add_foreign_key "itens", "categorias"
+  add_foreign_key "itens", "estados"
+  add_foreign_key "itens", "locais"
+  add_foreign_key "itens", "siloms"
+  add_foreign_key "itens", "usuarios"
+  add_foreign_key "leituras", "itens"
+  add_foreign_key "leituras", "locais"
+  add_foreign_key "leituras", "usuarios"
 end
