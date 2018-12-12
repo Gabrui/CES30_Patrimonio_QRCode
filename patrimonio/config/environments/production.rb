@@ -94,4 +94,7 @@ Rails.application.configure do
 
   #TODO verificar se funciona em produção: se o pdf importa o css
   config.assets.precompile += ['application.css.scss', 'application.js']
+
+  #TODO
+  config.secret_key_base = ENV['SECRET_KEY_BASE']
 end
